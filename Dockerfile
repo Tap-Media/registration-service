@@ -11,9 +11,8 @@ FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
-COPY --from=builder /app/target/registration-service-*-dirty-SNAPSHOT.jar registration-service.jar
-RUN whoami
-RUN chmod -R 777 /app/registration-service.jar
+COPY --from=builder /app/target/registration-service-*-dirty-SNAPSHOT.jar /app/registration-service.jar
+RUN ls -al /app
 EXPOSE 50051
 # Run the Java application
 CMD ["java", "-jar", "-Dmicronaut.environments=dev", "registration-service.jar"]
