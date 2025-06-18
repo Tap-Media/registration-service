@@ -11,7 +11,7 @@ FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
-COPY --from=builder /app/target/registration-service-0.0.0-SNAPSHOT.jar /app/registration-service.jar
+COPY --from=builder /app/target/registration-service-*-dirty-SNAPSHOT.jar /app/registration-service.jar
 RUN ls -al /app
 EXPOSE 50051
 # Run the Java application
